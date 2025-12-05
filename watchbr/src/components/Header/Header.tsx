@@ -1,5 +1,4 @@
-// src/components/Header/Header.tsx
-import React from 'react'
+import React, { useState } from 'react'
 import LogoFestival from '../../assets/LogoFestival.svg'
 
 const IconHome = (props: React.SVGProps<SVGSVGElement>) => (
@@ -28,16 +27,41 @@ const IconChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-type NavItem = { label: string; href: string; icon?: React.ReactNode; dropdown?: boolean }
+type NavItem = {
+  label: string
+  href?: string
+  icon?: React.ReactNode
+  dropdown?: boolean
+  menuTitle?: string
+  options?: string[]
+}
 
 const nav: NavItem[] = [
   { label: 'Home', href: '#', icon: <IconHome /> },
   { label: 'Live', href: '#', icon: <IconLive /> },
-  { label: 'Musical Styles', href: '#', icon: <IconDisc />, dropdown: true },
-  { label: 'Exclusive Content', href: '#', icon: <IconPlus />, dropdown: true },
+  {
+    label: 'Musical Styles',
+    icon: <IconDisc />,
+    dropdown: true,
+    menuTitle: 'Styles:',
+    options: ['Rock', 'Pop', 'Funk', 'MPB', 'Jazz', 'Trap', 'Rap'],
+  },
+  {
+    label: 'Exclusive Content',
+    icon: <IconPlus />,
+    dropdown: true,
+    menuTitle: 'Content:',
+    options: ['Back Stage', 'Interviews', 'Lestest News', 'Last Editions', 'Watch Again'],
+  },
 ]
 
 export const Header: React.FC = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
+
+  const toggleMenu = (label: string) => {
+    setOpenMenu((prev) => (prev === label ? null : label))
+  }
+
   return (
     <header
       className="
@@ -46,47 +70,109 @@ export const Header: React.FC = () => {
         h-14
       "
     >
-      {/* camada de fundo com opacidade */}
       <div
         className="
           absolute inset-0
-          bg-black/60       /* fundo preto com 60% */
-          backdrop-blur-sm  /* blur opcional */
+          bg-black/60
+          backdrop-blur-sm
           pointer-events-none
         "
       />
 
-      {/* conteúdo do header (NÃO sofre opacidade) */}
       <div className="relative container mx-auto h-full px-4 flex items-center gap-8 text-white">
-        {/* logo */}
         <a href="#" className="flex items-center shrink-0">
           <img src={LogoFestival} alt="Festival" className="h-10 w-auto" />
         </a>
+        <nav className="flex items-center gap-6 text-sm whitespace-nowrap">
+          {nav.map((item) =>
+            !item.dropdown ? (
+              <a
+                key={item.label}
+                href={item.href}
+                className="
+                  inline-flex items-center gap-2 px-2 py-2 rounded-md
+                  hover:text-white/90
+                  no-underline
+                  [&_svg]:shrink-0
+                "
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </a>
+            ) : (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseLeave={() => setOpenMenu(null)}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleMenu(item.label)}
+                  className="
+                    inline-flex items-center gap-2 px-2 py-2 rounded-md
+                    hover:text-white/90
+                    no-underline
+                    [&_svg]:shrink-0
+                  "
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                  <IconChevronDown
+                    className={`ml-1 transition-transform ${
+                      openMenu === item.label ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
 
-        {/* navegação */}
-        <nav className="flex items-center gap-8 text-sm whitespace-nowrap">
-          {nav.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="
-                inline-flex items-center gap-2 px-2 py-2 rounded-md
-                hover:text-white/90
-                no-underline
-                [&_svg]:shrink-0
-              "
-            >
-              {item.icon}
-              <span>{item.label}</span>
-              {item.dropdown && <IconChevronDown className="ml-1" />}
-            </a>
-          ))}
+                {openMenu === item.label && (
+                  <div
+                    className="
+                      absolute left-0 top-full mt-2
+                      min-w-[190px]
+                      rounded-lg
+                      bg-[#050816]
+                      border border-white/10
+                      shadow-lg
+                      py-2
+                      z-50
+                    "
+                  >
+                    {item.menuTitle && (
+                      <p className="px-4 pb-1 text-[18px] font-semibold text-white">
+                        {item.menuTitle}
+                      </p>
+                    )}
+
+                    <ul className="px-2 pb-1">
+                      {item.options?.map((opt) => (
+                        <li key={opt}>
+                          <button
+                            type="button"
+                            className="
+                              w-full text-left
+                              px-2 py-1.5
+                              rounded-md
+                              text-[18px] text-white/70
+                              hover:bg-white/10
+                            "
+                            onClick={() => {
+                              console.log('clicou em', opt)
+                              setOpenMenu(null)
+                            }}
+                          >
+                            {opt}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )
+          )}
         </nav>
 
-        {/* usuário */}
-        <span className="ml-auto text-sm whitespace-nowrap">
-          Peter Parker
-        </span>
+        <span className="ml-auto text-sm whitespace-nowrap">Peter Parker</span>
       </div>
     </header>
   )
