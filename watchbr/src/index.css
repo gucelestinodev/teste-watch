@@ -1,12 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* base dark do projeto */
 :root { color-scheme: dark; }
 html, body, #root { height: 100%; }
 body { margin: 0; }
 
-/* opcional: scrollbar horizontal para carrosséis */
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
 .horizontal-scroll::-webkit-scrollbar { height: 8px; }
 .horizontal-scroll::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 9999px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.grabbing { cursor: grabbing !important; }
