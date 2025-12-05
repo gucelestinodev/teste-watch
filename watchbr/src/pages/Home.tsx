@@ -18,11 +18,14 @@ import CaixasShow from '../assets/famosos/CaixasShow.jpg'
 
 import Cerveja from '../assets/cerveja.png'
 import CocaCola from '../assets/coca-cola.png'
+import avril from '../videos/avril.mp4'
 import Pincel from '../assets/cerveja.png'
 
 import ExclusiveCarousel from '../components/Carousel/ExclusiveCarousel'
 import BannerCarousel from '../components/Banner/BannerCarousel'
 import FestivalCarousel from '../components/Carousel/FestivalCarousel'
+
+import HeroVideo from '../components/Hero/HeroVideo'
 
 export const Home: React.FC = () => {
   const yesterday = [
@@ -126,16 +129,18 @@ export const Home: React.FC = () => {
   ]
 
   return (
-    <main className="flex flex-col gap-10 py-8">
-      <Container>
-        <h2 className="text-2xl font-semibold mb-2">
-          Bem-vindo(a) à Watch Brasil 🎬
-        </h2>
-        <p className="text-white/70">
-          Aqui você encontra transmissões ao vivo, filmes, séries e shows — tudo
-          em um só lugar.
-        </p>
-      </Container>
+    <main className="flex flex-col gap-10 pb-8">
+      <HeroVideo
+        src={avril}
+        poster={Card3}
+        title="Avril Lavigne"
+        subtitle="LIVE • Sunset • Singer Camera"
+        ctaLabel="Choose your camera"
+      />
+
+      <section className="-mt-8">
+        <Carousel title="Line Up" items={yesterday} />
+      </section>
 
       <ExclusiveCarousel title="Exclusive Content" items={exclusiveItems} />
 
