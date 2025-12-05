@@ -1,11 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 */
+@import "tailwindcss";
 
-/* base dark do projeto */
+/* base limpa */
 :root { color-scheme: dark; }
 html, body, #root { height: 100%; }
 body { margin: 0; }
+
+/* 🔒 Links SEMPRE brancos, em todos os estados (sem @apply) */
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
 
 /* opcional: scrollbar horizontal para carrosséis */
 .horizontal-scroll::-webkit-scrollbar { height: 8px; }
