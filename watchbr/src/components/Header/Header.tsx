@@ -1,4 +1,3 @@
-// src/components/Header/Header.tsx
 import React from 'react'
 import LogoFestival from '../../assets/LogoFestival.svg'
 
@@ -40,12 +39,9 @@ export const Header: React.FC = () => {
   return (
     <header className="w-full bg-black text-white">
       <div className="container mx-auto h-14 px-4 flex items-center gap-8">
-        {/* logo */}
         <a href="#" className="flex items-center shrink-0">
-          <img src={LogoFestival} alt="Festival" className="h-6 w-auto" />
+          <img src={LogoFestival} alt="Festival" className="h-10 w-auto" />
         </a>
-
-        {/* navegação */}
         <nav className="flex items-center gap-8 text-sm whitespace-nowrap">
           {nav.map((item) => (
             <a
@@ -64,8 +60,6 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
-
-        {/* usuário à direita */}
         <span className="ml-auto text-sm whitespace-nowrap">Peter Parker</span>
       </div>
     </header>

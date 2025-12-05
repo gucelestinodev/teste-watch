@@ -1,12 +1,9 @@
-/* Tailwind v4 */
 @import "tailwindcss";
 
-/* base limpa */
 :root { color-scheme: dark; }
 html, body, #root { height: 100%; }
 body { margin: 0; }
 
-/* 🔒 Links SEMPRE brancos, em todos os estados (sem @apply) */
 a,
 a:visited,
 a:hover,
@@ -16,6 +13,8 @@ a:focus {
   text-decoration: none !important;
 }
 
-/* opcional: scrollbar horizontal para carrosséis */
 .horizontal-scroll::-webkit-scrollbar { height: 8px; }
 .horizontal-scroll::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 9999px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.grabbing { cursor: grabbing !important; }
