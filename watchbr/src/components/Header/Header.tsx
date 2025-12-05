@@ -1,3 +1,4 @@
+// src/components/Header/Header.tsx
 import React from 'react'
 import LogoFestival from '../../assets/LogoFestival.svg'
 
@@ -28,6 +29,7 @@ const IconChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 type NavItem = { label: string; href: string; icon?: React.ReactNode; dropdown?: boolean }
+
 const nav: NavItem[] = [
   { label: 'Home', href: '#', icon: <IconHome /> },
   { label: 'Live', href: '#', icon: <IconLive /> },
@@ -37,11 +39,31 @@ const nav: NavItem[] = [
 
 export const Header: React.FC = () => {
   return (
-    <header className="w-full bg-black text-white">
-      <div className="container mx-auto h-14 px-4 flex items-center gap-8">
+    <header
+      className="
+        fixed top-0 left-0 right-0
+        z-50
+        h-14
+      "
+    >
+      {/* camada de fundo com opacidade */}
+      <div
+        className="
+          absolute inset-0
+          bg-black/60       /* fundo preto com 60% */
+          backdrop-blur-sm  /* blur opcional */
+          pointer-events-none
+        "
+      />
+
+      {/* conteúdo do header (NÃO sofre opacidade) */}
+      <div className="relative container mx-auto h-full px-4 flex items-center gap-8 text-white">
+        {/* logo */}
         <a href="#" className="flex items-center shrink-0">
           <img src={LogoFestival} alt="Festival" className="h-10 w-auto" />
         </a>
+
+        {/* navegação */}
         <nav className="flex items-center gap-8 text-sm whitespace-nowrap">
           {nav.map((item) => (
             <a
@@ -49,9 +71,9 @@ export const Header: React.FC = () => {
               href={item.href}
               className="
                 inline-flex items-center gap-2 px-2 py-2 rounded-md
-                text-white visited:text-white hover:text-white/90 no-underline
-                [&_svg]:text-white [&_svg]:shrink-0
-                transition-colors
+                hover:text-white/90
+                no-underline
+                [&_svg]:shrink-0
               "
             >
               {item.icon}
@@ -60,7 +82,11 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
-        <span className="ml-auto text-sm whitespace-nowrap">Peter Parker</span>
+
+        {/* usuário */}
+        <span className="ml-auto text-sm whitespace-nowrap">
+          Peter Parker
+        </span>
       </div>
     </header>
   )
