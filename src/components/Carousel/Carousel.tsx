@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import ShowCard, { type ShowCardProps } from '../Card/ShowCard'
 
 export type CarouselItem = Pick<ShowCardProps, 'image' | 'title' | 'onClick' | 'aspect'>

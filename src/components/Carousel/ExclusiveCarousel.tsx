@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import ExclusiveCard, { type ExclusiveCardProps } from '../Card/ExclusiveCard'
 
 export type ExclusiveCarouselItem = Pick<
