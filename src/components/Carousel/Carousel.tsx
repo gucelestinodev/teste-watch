@@ -35,7 +35,7 @@ export default function Carousel({ title, items }: CarouselProps) {
   }
 
   return (
-    <section className="py-6">
+    <section>
       <div className="container mx-auto px-4">
         {title && <h2 className="text-lg md:text-xl font-semibold mb-3">{title}</h2>}
 

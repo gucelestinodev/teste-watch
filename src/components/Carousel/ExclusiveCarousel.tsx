@@ -39,7 +39,7 @@ export default function ExclusiveCarousel({ title, items }: ExclusiveCarouselPro
   }
 
   return (
-    <section className="py-6">
+    <section>
       <div className="container mx-auto px-4">
         {title && (
           <h2 className="text-[32px] md:text-xl font-semibold mb-3">

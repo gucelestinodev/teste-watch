@@ -23,9 +23,10 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       className="
         relative
         w-full
-        h-screen            /* ocupa a tela inteira */
+        h-screen
         bg-black
         overflow-hidden
+        mb-14
       "
     >
       <video
