@@ -1,18 +1,21 @@
-import React, { useRef } from 'react'
-import ShowCard, { type ShowCardProps } from '../Card/ShowCard'
+import { useRef } from 'react'
+import ExclusiveCard, { type ExclusiveCardProps } from '../Card/ExclusiveCard'
 
-export type CarouselItem = Pick<ShowCardProps, 'image' | 'title' | 'onClick' | 'aspect'>
-export type CarouselProps = {
+export type ExclusiveCarouselItem = Pick<
+  ExclusiveCardProps,
+  'image' | 'title' | 'subtitle' | 'onClick' | 'hasOverlay'
+>
+
+export type ExclusiveCarouselProps = {
   title?: string
-  items: CarouselItem[]
+  items: ExclusiveCarouselItem[]
 }
 
-export default function Carousel({ title, items }: CarouselProps) {
+export default function ExclusiveCarousel({ title, items }: ExclusiveCarouselProps) {
   const scrollerRef = useRef<HTMLDivElement>(null)
-  const state = useRef<{ down: boolean; startX: number; scrollLeft: number }>({
+  const state = useRef<{ down: boolean; startX: number }>({
     down: false,
     startX: 0,
-    scrollLeft: 0,
   })
 
   const onDown = (x: number) => {
@@ -20,14 +23,15 @@ export default function Carousel({ title, items }: CarouselProps) {
     if (!el) return
     state.current.down = true
     state.current.startX = x + el.scrollLeft
-    state.current.scrollLeft = el.scrollLeft
     el.classList.add('grabbing')
   }
+
   const onMove = (x: number) => {
     const el = scrollerRef.current
     if (!el || !state.current.down) return
     el.scrollLeft = state.current.startX - x
   }
+
   const onUp = () => {
     const el = scrollerRef.current
     state.current.down = false
@@ -37,7 +41,11 @@ export default function Carousel({ title, items }: CarouselProps) {
   return (
     <section className="py-6">
       <div className="container mx-auto px-4">
-        {title && <h2 className="text-lg md:text-xl font-semibold mb-3">{title}</h2>}
+        {title && (
+          <h2 className="text-[32px] md:text-xl font-semibold mb-3">
+            {title}
+          </h2>
+        )}
 
         <div
           ref={scrollerRef}
@@ -59,7 +67,7 @@ export default function Carousel({ title, items }: CarouselProps) {
           <div className="flex gap-4 md:gap-5">
             {items.map((item, i) => (
               <div key={i} className="snap-start">
-                <ShowCard {...item} />
+                <ExclusiveCard {...item} />
               </div>
             ))}
           </div>
