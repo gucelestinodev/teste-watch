@@ -17,6 +17,61 @@ import Cerveja from '../assets/cerveja.png'
 import CocaCola from '../assets/coca-cola.png'
 import Pincel from '../assets/cerveja.png'
 
+import cena1 from '../assets/cena1.png'
+import cena2 from '../assets/cena2.png'
+import cena3 from '../assets/cena3.png'
+import cena4 from '../assets/cena4.png'
+import cena5 from '../assets/cena5.png'
+import cena6 from '../assets/cena6.png'
+
+import { type LiveShowItem } from '../components/Carousel/LiveCarousel'
+
+export const liveItems: LiveShowItem[] = [
+  {
+    id: 1,
+    image: cena1,
+    artist: 'Demi Lovato',
+    stage: 'Stage Sunset',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+  {
+    id: 2,
+    image: cena2,
+    artist: 'Demi Lovato',
+    stage: 'Stage World',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+  {
+    id: 3,
+    image: cena3,
+    artist: 'Demi Lovato',
+    stage: 'Stage Favela',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+  {
+    id: 4,
+    image: cena4,
+    artist: 'Demi Lovato',
+    stage: 'Stage Favela',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+  {
+    id: 5,
+    image: cena5,
+    artist: 'Demi Lovato',
+    stage: 'Stage Favela',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+  {
+    id: 6,
+    image: cena6,
+    artist: 'Demi Lovato',
+    stage: 'Stage Favela',
+    dateTime: 'dd.mm.aa - 00:00 h',
+  },
+]
+
+
 export const yesterday = [
     { image: Card, title: 'Cantor' },
     { image: Card1, title: 'Marshmello' },

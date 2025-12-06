@@ -23,9 +23,10 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       className="
         relative
         w-full
-        h-screen            /* ocupa a tela inteira */
+        h-screen
         bg-black
         overflow-hidden
+        mb-14
       "
     >
       <video
@@ -40,7 +41,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#1E1E22] via-transparent" />
 
-      <div className="absolute left-6 top-6 md:left-10 md:top-10 z-10">
+      <div className="absolute left-6 top-6 md:left-10 md:top-22 z-10">
         <h1 className="text-xl md:text-2xl font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,.8)]">
           {title}
         </h1>

@@ -7,13 +7,14 @@ import BannerCarousel from '../components/Banner/BannerCarousel'
 import FestivalCarousel from '../components/Carousel/FestivalCarousel'
 
 import HeroVideo from '../components/Hero/HeroVideo'
-import { yesterday, exclusiveItems, banners, festivalItems, today } from './utils'
+import { yesterday, exclusiveItems, banners, festivalItems, today, liveItems } from './utils'
+import LiveCarousel from '../components/Carousel/LiveCarousel'
+
+
 
 export const Home: React.FC = () => {
-  
-
   return (
-    <main className="flex flex-col gap-10 pb-8">
+    <main className="flex flex-col gap-6 pb-8">
       <HeroVideo
         src={avril}
         poster={Card3}
@@ -26,9 +27,7 @@ export const Home: React.FC = () => {
         <Carousel title="Line Up" items={yesterday} />
       </section>
 
-      <ExclusiveCarousel title="Exclusive Content" items={exclusiveItems} />
-
-      <section className="py-6">
+      <section>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch">
             <div className="w-full md:max-w-xs md:flex-[0_0_260px] flex flex-col justify-center">
@@ -42,7 +41,7 @@ export const Home: React.FC = () => {
               <button
                 className="
                   inline-flex items-center justify-center
-                  w-[96px] h-8
+                  w-24 h-8
                   px-6
                   rounded-[16px]
                   bg-[#E96744]
@@ -62,6 +61,8 @@ export const Home: React.FC = () => {
       </section>
 
       <BannerCarousel items={banners} />
+
+      <LiveCarousel title="In Live" items={liveItems} />
 
       <Carousel title="Yesterday Shows" items={yesterday} />
 
