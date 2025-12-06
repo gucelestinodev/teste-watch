@@ -1,31 +1,13 @@
 import React, { useState } from 'react'
 import LogoFestival from '../../assets/LogoFestival.svg'
-
-const IconHome = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="M12 3 3 10v10a1 1 0 0 0 1 1h6v-6h4v6h6a1 1 0 0 0 1-1V10L12 3z" />
-  </svg>
-)
-const IconLive = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-7 5a7 7 0 0 1 7-7v2a5 5 0 0 0-5 5 5 5 0 0 0 5 5v2a7 7 0 0 1-7-7zm14 0a7 7 0 0 1-7 7v-2a5 5 0 0 0 5-5 5 5 0 0 0-5-5V5a7 7 0 0 1 7 7z"/>
-  </svg>
-)
-const IconDisc = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 11.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/>
-  </svg>
-)
-const IconPlus = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>
-  </svg>
-)
-const IconChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="m5.23 7.21 4.24 4.24 4.24-4.24 1.06 1.06-5.3 5.3-5.3-5.3z"/>
-  </svg>
-)
+import music from '../../assets/music.svg'
+import live from '../../assets/live.svg'
+import sparkless from '../../assets/sparkless.svg'
+import iconDropdown from '../../assets/iconDropdown.svg'
+import { LuHouse } from "react-icons/lu";
+import PersonIcon from '../../assets/person.svg'
+import iconSettings from '../../assets/settings.svg'
+import iconSettingsWhite from '../../assets/settingsWhite.svg'
 
 type NavItem = {
   label: string
@@ -37,18 +19,18 @@ type NavItem = {
 }
 
 const nav: NavItem[] = [
-  { label: 'Home', href: '#', icon: <IconHome /> },
-  { label: 'Live', href: '#', icon: <IconLive /> },
+  { label: 'Home', href: '#', icon: <LuHouse /> },
+  { label: 'Live', href: '#', icon: <img src={live} alt="Live" /> },
   {
     label: 'Musical Styles',
-    icon: <IconDisc />,
+    icon: <img src={music} alt="Musical Styles" />,
     dropdown: true,
     menuTitle: 'Styles:',
     options: ['Rock', 'Pop', 'Funk', 'MPB', 'Jazz', 'Trap', 'Rap'],
   },
   {
     label: 'Exclusive Content',
-    icon: <IconPlus />,
+    icon: <img src={sparkless} alt="Exclusive Content" />,
     dropdown: true,
     menuTitle: 'Content:',
     options: ['Back Stage', 'Interviews', 'Lestest News', 'Last Editions', 'Watch Again'],
@@ -57,29 +39,29 @@ const nav: NavItem[] = [
 
 export const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [, setSettingsActive] = useState(false)
 
   const toggleMenu = (label: string) => {
-    setOpenMenu((prev) => (prev === label ? null : label))
+    setOpenMenu(prev => prev === label ? null : label)
   }
 
   return (
-    <header
-      className="
-        fixed top-0 left-0 right-0
-        z-50
-        h-14
-      "
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 h-14">
+
       <div
         className="
           absolute inset-0
-          bg-black/60
           backdrop-blur-sm
           pointer-events-none
         "
+        style={{
+          background:
+            'linear-gradient(180deg, #2B2B2E 0%, rgba(43, 43, 46, 0.6) 54.69%, rgba(43, 43, 46, 0) 100%),' +
+            'linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))',
+        }}
       />
 
-      <div className="relative container mx-auto h-full px-4 flex items-center gap-8 text-white">
+      <div className="relative container mx-auto px-5 h-full flex items-center gap-8 text-white">
         <a href="#" className="flex items-center shrink-0">
           <img src={LogoFestival} alt="Festival" className="h-10 w-auto" />
         </a>
@@ -89,76 +71,49 @@ export const Header: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="
-                  inline-flex items-center gap-2 px-2 py-2 rounded-md
-                  hover:text-white/90
-                  no-underline
-                  [&_svg]:shrink-0
-                "
+                className="inline-flex items-center gap-2 px-2 py-2 rounded-md hover:text-white/90"
               >
                 {item.icon}
-                <span>{item.label}</span>
+                {item.label}
               </a>
             ) : (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseLeave={() => setOpenMenu(null)}
-              >
+              <div key={item.label} className="relative" onMouseLeave={() => setOpenMenu(null)}>
                 <button
-                  type="button"
                   onClick={() => toggleMenu(item.label)}
-                  className="
-                    inline-flex items-center gap-2 px-2 py-2 rounded-md
-                    hover:text-white/90
-                    no-underline
-                    [&_svg]:shrink-0
-                  "
+                  className="inline-flex items-center gap-2 px-2 py-2 hover:text-white/90"
                 >
                   {item.icon}
-                  <span>{item.label}</span>
-                  <IconChevronDown
-                    className={`ml-1 transition-transform ${
-                      openMenu === item.label ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-
+                  {item.label}
+                  <img
+                    src={iconDropdown}
+                    className={`w-4 h-4 transition-transform ${openMenu === item.label ? 'rotate-180' : ''
+                      }`}
+                    alt=""
+                  />                </button>
                 {openMenu === item.label && (
                   <div
                     className="
-                      absolute left-0 top-full mt-2
-                      min-w-[190px]
-                      rounded-lg
-                      bg-[#050816]
-                      border border-white/10
+                      absolute left-0 top-full
+                      min-w-40
+                      bg-[#19191C]
                       shadow-lg
-                      py-2
                       z-50
                     "
                   >
-                    {item.menuTitle && (
-                      <p className="px-4 pb-1 text-[18px] font-semibold text-white">
-                        {item.menuTitle}
-                      </p>
-                    )}
-
-                    <ul className="px-2 pb-1">
-                      {item.options?.map((opt) => (
+                    <p className="px-2 py-2 text-[18px] font-semibold text-white">{item.menuTitle}</p>
+                    <ul className="pb-1">
+                      {item.options?.map(opt => (
                         <li key={opt}>
                           <button
-                            type="button"
+                            onClick={() => setOpenMenu(null)}
                             className="
-                              w-full text-left
-                              px-2 py-1.5
-                              rounded-md
-                              text-[18px] text-white/70
-                              hover:bg-white/10
-                            "
-                            onClick={() => {
-                              console.log('clicou em', opt)
-                              setOpenMenu(null)
-                            }}
+                                w-full text-left
+                                px-2 py-1.5
+                                text-[18px]
+                                text-white/70
+                                hover:bg-[#E96744]
+                                hover:text-white
+                              "
                           >
                             {opt}
                           </button>
@@ -171,8 +126,71 @@ export const Header: React.FC = () => {
             )
           )}
         </nav>
+        <div className="ml-auto flex items-center gap-2 relative">
+          <div className="w-8 h-8 rounded-full bg-[#E96744] flex items-center justify-center">
+            <img src={PersonIcon} alt="User" className="w-4 h-4 text-white" />
+          </div>
+          <div
+            className="relative"
+            onMouseLeave={() => setOpenMenu(null)}
+          >
+            <button
+              onClick={() => {
+                toggleMenu("profile")
+                setSettingsActive(prev => !prev)
+              }}
+              className={`
+                flex items-center gap-2 text-sm
+                transition-colors "text-white"
+                hover:text-white/90
+              `}
+            >
+              Peter Parker
+              <img
+                src={openMenu === "profile" ? iconSettings : iconSettingsWhite}
+                alt="Settings"
+                className="w-4 h-4"
+              />            </button>
+            {openMenu === "profile" && (
+              <div
+                className="
+                  absolute top-full mt-2
+                  -left-6
+                  min-w-30
+                  bg-[#19191C]
+                  shadow-lg
+                  z-50
+                "
+                role="menu"
+              >
+                <p className="px-2 py-2 text-[18px] font-semibold text-white">
+                  My Profile
+                </p>
+                <ul className="pb-1">
+                  {["Help"].map((opt) => (
+                    <li key={opt}>
+                      <button
+                        onClick={() => setOpenMenu(null)}
+                        className="
+                          w-full text-left
+                          px-2 py-1.5
+                          text-[18px]
+                          text-white/70
+                          hover:bg-[#E96744]
+                          hover:text-white
+                        "
+                        role="menuitem"
+                      >
+                        {opt}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-        <span className="ml-auto text-sm whitespace-nowrap">Peter Parker</span>
+          </div>
+        </div>
       </div>
     </header>
   )
