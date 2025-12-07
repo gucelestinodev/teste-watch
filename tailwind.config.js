@@ -3,6 +3,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     container: { center: true, padding: '1rem' },
+    fontFamily: {
+      sans: ["Roboto", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Arial", "Noto Sans", "sans-serif"]
+    },
     extend: {
       colors: {
         brand: { primary: '#ff4d4f', dark: '#0b0b0b' },

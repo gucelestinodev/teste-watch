@@ -21,12 +21,12 @@ export default function ShowCard({
 }: ShowCardProps) {
   return (
     <article
-      className={`relative w-[220px] md:w-[260px] shrink-0 ${className ?? ''}`}
+      className={`relative w-50 md:w-[248px] shrink-0 ${className ?? ''}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : -1}
     >
-      <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 transition">
+      <div className="group relative overflow-hidden rounded-xl bg-black/20 transition">
         <div className={`${ratioClass[aspect]} relative`}>
           <img
             src={image}
@@ -47,12 +47,12 @@ export default function ShowCard({
             className="
               pointer-events-none absolute inset-0 rounded-xl
               opacity-0 group-hover:opacity-100 transition-opacity
-              shadow-[inset_0_0_0_2px_#E96744]
+              shadow-[inset_0_0_0_3px_#E96744]
             "
           />
 
           <div className="absolute left-0 right-0 top-[78%] -translate-y-1/2 text-center px-3">
-            <h3 className="text-white text-[18px] md:text-base font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,.8)]">
+            <h3 className="text-white text-[18px] font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,.8)]">
               {title}
             </h3>
           </div>

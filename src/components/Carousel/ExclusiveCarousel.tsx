@@ -42,7 +42,7 @@ export default function ExclusiveCarousel({ title, items }: ExclusiveCarouselPro
     <section>
       <div className="container mx-auto px-4">
         {title && (
-          <h2 className="text-[32px] md:text-xl font-semibold mb-3">
+          <h2 className="text-lg md:text-[24px] font-bold mb-3">
             {title}
           </h2>
         )}

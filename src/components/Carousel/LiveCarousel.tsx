@@ -174,7 +174,7 @@ const LiveCarousel: React.FC<LiveCarouselProps> = ({
   return (
     <section className="w-full">
       <div className="container mx-auto px-5">
-        <h2 className="text-[20px] font-semibold mb-4 text-white">
+        <h2 className="text-lg md:text-[24px] font-bold mb-3">
           {title}
         </h2>
 
