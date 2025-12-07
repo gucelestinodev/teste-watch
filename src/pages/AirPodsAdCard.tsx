@@ -1,4 +1,4 @@
-import airpodsBg from '../assets/airPods.png'
+import airpodsBg from '../assets/AirPods.png'
 import info from '../assets/info.svg'
 import arrow from '../assets/arrow.svg'
 
