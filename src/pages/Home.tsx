@@ -9,8 +9,11 @@ import FestivalCarousel from '../components/Carousel/FestivalCarousel'
 import HeroVideo from '../components/Hero/HeroVideo'
 import { yesterday, exclusiveItems, banners, banners2, festivalItems, rockItems, liveItems, lineUp, watchItems } from './utils'
 import LiveCarousel from '../components/Carousel/LiveCarousel'
-import TeslaAdCard from './TeslaAdCard'
-import AirPodsAdCard from './AirPodsAdCard'
+import TeslaAdCard from '../components/CardSupplement/TeslaAdCard'
+import AirPodsAdCard from '../components/CardSupplement/AirPodsAdCard'
+import TeslaAdCardLittle from '../components/CardSupplement/TeslaAdCardLittle'
+import AirPodsAdCardLittle from '../components/CardSupplement/AirPodsAdCardLittle'
+import NikeAdCardLittle from '../components/CardSupplement/NikeCardLittle'
 
 export const Home: React.FC = () => {
   return (
@@ -74,7 +77,15 @@ export const Home: React.FC = () => {
 
       <Carousel title="Yesterday Shows" items={yesterday} />
 
-      <ExclusiveCarousel title="Exclusive Content" items={exclusiveItems} />
+      <ExclusiveCarousel
+        title="Exclusive Content"
+        items={exclusiveItems}
+        slots={[
+          { index: 1, node: <NikeAdCardLittle />, key: 'tesla-slot' },
+          { index: 2, node: <TeslaAdCardLittle />, key: 'tesla-slot' },
+          { index: 2, node: <AirPodsAdCardLittle />, key: 'airpods-slot' },
+        ]}
+      />
 
       <Carousel title="Rock Singers" items={rockItems} />
 

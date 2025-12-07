@@ -16,9 +16,10 @@ import BlackPantera from '../assets/famosos/BlackPantera.png';
 import EdSheeron from '../assets/famosos/EdSheeran.png';
 
 
-import Tenis from '../assets/famosos/Tenis.svg'
 import Microfone from '../assets/famosos/Microfone.jpg'
 import CaixasShow from '../assets/famosos/CaixasShow.jpg'
+import CameraFilme from '../assets/cameraFilme.jpg'
+import LenteCamera from '../assets/lenteCamera.jpg'
 
 import type { BannerItem } from '../components/Banner/BannerCarousel'
 import Cerveja from '../assets/cerveja.png'
@@ -164,22 +165,13 @@ export const exclusiveItems = [
         subtitle: 'Festival',
     },
     {
-        image: Tenis,
-        hasOverlay: false,
-    },
-    {
-        image: CaixasShow,
-        title: 'Behind the Scenes',
+        image: LenteCamera,
+        title: 'Lestest News',
         subtitle: 'Festival',
     },
     {
-        image: CaixasShow,
-        title: 'Behind the Scenes',
-        subtitle: 'Festival',
-    },
-    {
-        image: CaixasShow,
-        title: 'Behind the Scenes',
+        image: CameraFilme,
+        title: 'Last Editions',
         subtitle: 'Festival',
     },
 ]
@@ -246,7 +238,7 @@ export const pinkGradient =
 export const broalGradient =
     'linear-gradient(336.78deg, #7A5000 22.25%, #B35300 124.95%)'
 export const redGradient =
-    'linear-gradient(336.78deg, #FF0100 22.25%, #A80100 124.95%)'
+    'linear-gradient(336.78deg, #A80100 22.25%, #FF0100 124.95%)'
 
 export const festivalItems = [
     { title: 'Rock', subtitle: 'Festival', background: blueGradient },
