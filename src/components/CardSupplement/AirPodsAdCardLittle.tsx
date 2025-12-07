@@ -1,19 +1,19 @@
-import airpodsBg from '../assets/AirPods.png'
-import info from '../assets/info.svg'
-import arrow from '../assets/arrow.svg'
+import airpodsBg from '../../assets/AirPods.png'
+import info from '../../assets/info.svg'
+import arrow from '../../assets/arrow.svg'
 
-function AirPodsAdCard() {
+function AirPodsAdCardLittle() {
     return (
         <article
             className="
-        group relative
-        w-full md:w-[300px] lg:w-[440px]
-        h-[216px]
-        rounded-2xl overflow-hidden
-        border-4 border-transparent
-        hover:border-[#E96744]
-        transition-colors duration-200
-      "
+                group relative
+                w-80 md:w-[520px]
+                h-[255px]
+                rounded-2xl overflow-hidden
+                border-4 border-transparent
+                hover:border-[#E96744]
+                transition-colors duration-200
+            "
         >
             <img
                 src={airpodsBg}
@@ -31,7 +31,7 @@ function AirPodsAdCard() {
                     </span>
                 </div>
 
-                <div className="absolute md:bottom-8 md:left-56 z-10">
+                <div className="absolute md:bottom-8 md:left-66 z-10">
                     <a
                         href="https://www.apple.com/airpods-pro/"
                         target="_blank"
@@ -53,4 +53,4 @@ function AirPodsAdCard() {
     )
 }
 
-export default AirPodsAdCard
+export default AirPodsAdCardLittle
