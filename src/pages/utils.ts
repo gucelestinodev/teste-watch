@@ -1,100 +1,156 @@
+import IronMaiden from '../assets/famosos/IronMaiden.png';
+import Alok from '../assets/famosos/Alok.png';
+import RitaOra from '../assets/famosos/RitaOra.png';
+import DreamTheate from '../assets/famosos/DreamTheate.png';
+import DuaLipa from '../assets/famosos/DuaLipa.png';
+import Maneskin from '../assets/famosos/Maneskin.png';
+import Emicida from '../assets/famosos/Emicida.png';
+import Coldplay from '../assets/famosos/Coldplay.png';
+import JustinBieber from '../assets/famosos/Justin.png';
+import LuisaSonza from '../assets/famosos/LuisaSonza.png';
+import Marshmello from '../assets/famosos/Marshmello.png';
+import Djavan from '../assets/famosos/Djavan.png';
+import Offspring from '../assets/famosos/Offspring.png';
+import AvrilLavigne from '../assets/famosos/AvrilLavigner.png';
+import BlackPantera from '../assets/famosos/BlackPantera.png';
+import EdSheeron from '../assets/famosos/EdSheeran.png';
 
-import Card from '../assets/famosos/Card.png'
-import Card1 from '../assets/famosos/Card1.png'
-import Card2 from '../assets/famosos/Card2.png'
-import Card3 from '../assets/famosos/Card3.png'
-import Card4 from '../assets/famosos/Card4.png'
-import Card5 from '../assets/famosos/Card5.png'
-import Card6 from '../assets/famosos/Card6.png'
-import Card7 from '../assets/famosos/Card7.png'
-import Card8 from '../assets/famosos/Card8.png'
 
 import Tenis from '../assets/famosos/Tenis.svg'
 import Microfone from '../assets/famosos/Microfone.jpg'
 import CaixasShow from '../assets/famosos/CaixasShow.jpg'
 
+import type { BannerItem } from '../components/Banner/BannerCarousel'
 import Cerveja from '../assets/cerveja.png'
+import LiveNow from '../assets/liveNow.png'
+import CokeDiet from '../assets/cokeDiet.png'
 import CocaCola from '../assets/coca-cola.png'
-import Pincel from '../assets/cerveja.png'
+import UltraMusicFestival from '../assets/ultraMusicFestival.png'
+import BaldeHeineken from '../assets/baldeHeineken.png'
 
-import cena1 from '../assets/cena1.png'
-import cena2 from '../assets/cena2.png'
-import cena3 from '../assets/cena3.png'
-import cena4 from '../assets/cena4.png'
-import cena5 from '../assets/cena5.png'
-import cena6 from '../assets/cena6.png'
+import cena1 from '../assets/palcos/cena1.png'
+import cena2 from '../assets/palcos/cena2.png'
+import cena3 from '../assets/palcos/cena3.png'
+import cena4 from '../assets/palcos/cena4.png'
+import cena5 from '../assets/palcos/cena5.png'
+import cena6 from '../assets/palcos/cena6.png'
 
 import { type LiveShowItem } from '../components/Carousel/LiveCarousel'
 
 export const liveItems: LiveShowItem[] = [
-  {
-    id: 1,
-    image: cena1,
-    artist: 'Demi Lovato',
-    stage: 'Stage Sunset',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
-  {
-    id: 2,
-    image: cena2,
-    artist: 'Demi Lovato',
-    stage: 'Stage World',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
-  {
-    id: 3,
-    image: cena3,
-    artist: 'Demi Lovato',
-    stage: 'Stage Favela',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
-  {
-    id: 4,
-    image: cena4,
-    artist: 'Demi Lovato',
-    stage: 'Stage Favela',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
-  {
-    id: 5,
-    image: cena5,
-    artist: 'Demi Lovato',
-    stage: 'Stage Favela',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
-  {
-    id: 6,
-    image: cena6,
-    artist: 'Demi Lovato',
-    stage: 'Stage Favela',
-    dateTime: 'dd.mm.aa - 00:00 h',
-  },
+    {
+        id: 1,
+        image: cena1,
+        artist: 'Demi Lovato',
+        stage: 'Stage Sunset',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
+    {
+        id: 2,
+        image: cena2,
+        artist: 'Demi Lovato',
+        stage: 'Stage World',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
+    {
+        id: 3,
+        image: cena3,
+        artist: 'Demi Lovato',
+        stage: 'Stage Favela',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
+    {
+        id: 4,
+        image: cena4,
+        artist: 'Demi Lovato',
+        stage: 'Stage Favela',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
+    {
+        id: 5,
+        image: cena5,
+        artist: 'Demi Lovato',
+        stage: 'Stage Favela',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
+    {
+        id: 6,
+        image: cena6,
+        artist: 'Demi Lovato',
+        stage: 'Stage Favela',
+        dateTime: 'dd.mm.aa - 00:00 h',
+    },
 ]
 
+
+export const lineUp = [
+    { image: IronMaiden, title: 'Iron Maiden' },
+    { image: Alok, title: 'Alok' },
+    { image: RitaOra, title: 'Rita Ora' },
+    { image: DreamTheate, title: 'Dream Theate' },
+    { image: DuaLipa, title: 'Dua Lipa' },
+    { image: Maneskin, title: 'Mâneskin' },
+    { image: Emicida, title: 'Emicida' },
+    { image: Coldplay, title: 'Coldplay' },
+    { image: JustinBieber, title: 'Justin Bieber' },
+    { image: LuisaSonza, title: 'Luísa Sonza' },
+    { image: Marshmello, title: 'Marshmello' },
+    { image: Djavan, title: 'Djavan' },
+    { image: Offspring, title: 'Offspring' },
+    { image: AvrilLavigne, title: 'Avril Lavigne' },
+    { image: BlackPantera, title: 'Black Pantera' },
+    { image: EdSheeron, title: 'Ed Sheeron' },
+]
 
 export const yesterday = [
-    { image: Card, title: 'Cantor' },
-    { image: Card1, title: 'Marshmello' },
-    { image: Card2, title: 'Alok' },
-    { image: Card3, title: 'Rita Ora' },
-    { image: Card4, title: 'Dream Theater' },
-    { image: Card5, title: 'Dua Lipa' },
-    { image: Card5, title: 'Dua Lipa' },
-    { image: Card6, title: 'Dua Lipa' },
-    { image: Card7, title: 'Dua Lipa' },
-    { image: Card8, title: 'Dua Lipa' },
+    { image: Marshmello, title: 'Marshmello' },
+    { image: Alok, title: 'Alok' },
+    { image: RitaOra, title: 'Rita Ora' },
+    { image: DreamTheate, title: 'Dream Theate' },
+    { image: DuaLipa, title: 'Dua Lipa' },
+    { image: Maneskin, title: 'Mâneskin' },
+    { image: Emicida, title: 'Emicida' },
+    { image: Coldplay, title: 'Coldplay' },
+    { image: JustinBieber, title: 'Justin Bieber' },
+    { image: LuisaSonza, title: 'Luísa Sonza' },
+    { image: Marshmello, title: 'Marshmello' },
+    { image: Djavan, title: 'Djavan' },
+    { image: Offspring, title: 'Offspring' },
+    { image: AvrilLavigne, title: 'Avril Lavigne' },
+    { image: BlackPantera, title: 'Black Pantera' },
+    { image: EdSheeron, title: 'Ed Sheeron' },
+    { image: IronMaiden, title: 'Iron Maiden' },
 ]
 
-export const today = [
-    { image: Card2, title: 'Coldplay' },
-    { image: Card3, title: 'Billie Eilish' },
-    { image: Card4, title: 'Ed Sheeran' },
-    { image: Card5, title: 'Ariana Grande' },
-    { image: Card1, title: 'Imagine Dragons' },
-    { image: Card6, title: 'The Weeknd' },
-    { image: Card7, title: 'Bruno Mars' },
-    { image: Card8, title: 'Shawn Mendes' },
+export const rockItems = [
+    { image: DreamTheate, title: 'Dream Theate' },
+    { image: Maneskin, title: 'Mâneskin' },
+    { image: Coldplay, title: 'Coldplay' },
+    { image: Offspring, title: 'Offspring' },
+    { image: AvrilLavigne, title: 'Ariana Lavigne' },
+    { image: BlackPantera, title: 'Black Pantera' },
+    { image: EdSheeron, title: 'Ed Sheeron' },
+    { image: IronMaiden, title: 'Iron Maiden' },
 ]
+
+export const watchItems = [
+    { image: Alok, title: 'Alok' },
+    { image: RitaOra, title: 'Rita Ora' },
+    { image: DuaLipa, title: 'Dua Lipa' },
+    { image: Maneskin, title: 'Mâneskin' },
+    { image: Emicida, title: 'Emicida' },
+    { image: Coldplay, title: 'Coldplay' },
+    { image: JustinBieber, title: 'Justin Bieber' },
+    { image: LuisaSonza, title: 'Luísa Sonza' },
+    { image: Marshmello, title: 'Marshmello' },
+    { image: Djavan, title: 'Djavan' },
+    { image: Offspring, title: 'Offspring' },
+    { image: AvrilLavigne, title: 'Avril Lavigne' },
+    { image: BlackPantera, title: 'Black Pantera' },
+    { image: EdSheeron, title: 'Ed Sheeron' },
+    { image: IronMaiden, title: 'Iron Maiden' },
+]
+
 
 export const exclusiveItems = [
     {
@@ -128,21 +184,52 @@ export const exclusiveItems = [
     },
 ]
 
-export const banners = [
+export const banners: BannerItem[] = [
     {
         image: Cerveja,
         buttonLabel: 'GET A TASTE OF AMSTERDAM',
         buttonColor: '#00833D',
+        buttonHref: 'https://www.heinekenbrasil.com.br/',
+        buttonTarget: '_blank',
     },
+    {
+        image: LiveNow,
+        buttonLabel: 'LOOK AT THE NEW SHOW',
+        buttonColor: '#E6008B',
+        buttonHref: 'https://www.livenowfestival.com/',
+        buttonTarget: '_blank',
+
+    },
+    {
+        image: CokeDiet,
+        buttonLabel: 'GET A TASTE OF DIET COKE',
+        buttonColor: '#DA0302',
+        buttonHref: 'https://www.coca-cola.com/us/en/brands/diet-coke',
+        buttonTarget: '_blank',
+    },
+]
+
+export const banners2: BannerItem[] = [
     {
         image: CocaCola,
-        buttonLabel: 'Learn more',
-        buttonColor: '#E10600',
+        buttonLabel: 'GET A TASTE OF THE NEW COKE',
+        buttonColor: '#DA0302',
+        buttonHref: 'https://www.coca-cola.com/us/en/brands/coca-cola',
+        buttonTarget: '_blank',
     },
     {
-        image: Pincel,
-        buttonLabel: 'Discover',
+        image: UltraMusicFestival,
+        buttonLabel: 'LOOK AT THE NEW SHOW',
+        buttonColor: '#E6008B',
+        buttonHref: 'https://ultramusicfestival.com/tickets/miami/',
+        buttonTarget: '_blank',
+    },
+    {
+        image: BaldeHeineken,
+        buttonLabel: 'GET A TASTE OF AMSTERDAM',
         buttonColor: '#00833D',
+        buttonHref: 'https://www.heinekenbrasil.com.br/',
+        buttonTarget: '_blank',
     },
 ]
 

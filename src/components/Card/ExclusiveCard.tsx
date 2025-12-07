@@ -17,7 +17,7 @@ export default function ExclusiveCard({
 }: ExclusiveCardProps) {
   return (
     <article
-      className={`relative w-[260px] md:w-[360px] shrink-0 ${className ?? ''}`}
+      className={`relative w-80 md:w-[440px] shrink-0 ${className ?? ''}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : -1}
@@ -54,12 +54,12 @@ export default function ExclusiveCard({
 
               <div className="absolute left-4 right-4 bottom-3">
                 {title && (
-                  <h3 className="text-white text-base md:text-lg font-semibold leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,.8)]">
+                  <h3 className="text-white text-base md:text-[32px] font-semibold leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,.8)]">
                     {title}
                   </h3>
                 )}
                 {subtitle && (
-                  <p className="text-white/70 text-xs md:text-sm mt-0.5">
+                  <p className="text-white/70 text-xs md:text-[24px] mt-0.5">
                     {subtitle}
                   </p>
                 )}
